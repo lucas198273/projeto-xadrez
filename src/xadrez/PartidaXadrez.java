@@ -37,7 +37,10 @@ public class PartidaXadrez {
     }
     private void ValidarPosicaoOrigem(Posicao posicao){
         if(!tabuleiro.haUmaPeca(posicao)){
-            throw new ExcecaoTabuleiro("POSIÇÃO NAO EXISTE NO TABULEIRO");
+            throw new ExcecaoTabuleiro("NAO HA UMA PEÇA NESTA POSIÇÃO");
+        }
+        if(!tabuleiro.peca(posicao).existeMovimentoPossivel()){
+            throw new ExcecaoXadrez("A PEÇA SELECIONADA NAO POSSUI MOVIMENTOS POSSIVEIS");
         }
     }
     private Peca relizarMovimento(Posicao partida, Posicao destino){
