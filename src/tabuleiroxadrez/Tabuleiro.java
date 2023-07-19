@@ -47,7 +47,19 @@ public class Tabuleiro {
         pecas[posicao.getLinha()][posicao.getColuna()] = peca;
         peca.posicao = posicao;
 
-    }// O metodo abaixo retorna booleana , Verifica se a posição da linha e coluna é existente no tabuleiro
+    }
+    public Peca removePeca(Posicao posicao){
+        if(!posicaoExiste(posicao)){ 
+            throw new ExcecaoTabuleiro("POSIÇÃO NAO EXISTE NO TABULEIRO");
+        }
+        if(peca(posicao) == null){
+            return null;
+        }
+        Peca auxiliar = peca(posicao);
+        pecas[posicao.getLinha()][posicao.getColuna()]= null;
+        return auxiliar;
+    }
+    // O metodo abaixo retorna booleana , Verifica se a posição da linha e coluna é existente no tabuleiro
     public boolean posicaoExiste(int Linha, int colunas){
         return Linha >= 0 && Linha < linha && colunas >= 0 && colunas < coluna;
     }

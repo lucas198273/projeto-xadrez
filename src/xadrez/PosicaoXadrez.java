@@ -25,7 +25,7 @@ public class PosicaoXadrez {
     protected Posicao paraPosicao(){
         return new Posicao(8 - linha,coluna - 'a'); // estudar esta linha
     }
-    protected static PosicaoXadrez apartirPosicao(Posicao posicao){
+    protected static PosicaoXadrez Posicaopartida(Posicao posicao){
         return new PosicaoXadrez((char)('a' - posicao.getColuna()), 8 - posicao.getLinha()); // estudar esta linha
     }
 

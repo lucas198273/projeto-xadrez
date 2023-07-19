@@ -6,6 +6,8 @@ import pecasdoxadrez.Peao;
 import pecasdoxadrez.Rainha;
 import pecasdoxadrez.Rei;
 import pecasdoxadrez.Torre;
+import tabuleiroxadrez.ExcecaoTabuleiro;
+import tabuleiroxadrez.Peca;
 import tabuleiroxadrez.Posicao;
 import tabuleiroxadrez.Tabuleiro;
 
@@ -25,6 +27,24 @@ public class PartidaXadrez {
             }
         }
         return peca;
+    }
+    public PecaXadrez executarMovimento(PosicaoXadrez posicaoPartida, PosicaoXadrez posicaoDestino){
+        Posicao partida = posicaoPartida.paraPosicao();
+        Posicao destino = posicaoDestino.paraPosicao();
+        ValidarPosicaoOrigem(partida);
+        Peca pecaCapturada = relizarMovimento(partida,destino);
+        return(PecaXadrez) pecaCapturada; //downCasting
+    }
+    private void ValidarPosicaoOrigem(Posicao posicao){
+        if(!tabuleiro.haUmaPeca(posicao)){
+            throw new ExcecaoTabuleiro("POSIÇÃO NAO EXISTE NO TABULEIRO");
+        }
+    }
+    private Peca relizarMovimento(Posicao partida, Posicao destino){
+        Peca p = tabuleiro.removePeca(partida);
+        Peca pecaCapturada = tabuleiro.removePeca(destino);
+        tabuleiro.LugarPeca(p, destino);
+        return pecaCapturada;
     }
     public void novoLugarPeca(char coluna, int linha , PecaXadrez peca){
         tabuleiro.LugarPeca(peca, new PosicaoXadrez(coluna, linha).paraPosicao()); // estudar esta linha
