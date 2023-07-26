@@ -17,11 +17,10 @@ public class Rei extends PecaXadrez{
     }
 
     @Override
-    public boolean[][] movimentoPossivel() {
-        boolean[][] matriz = new boolean[getTabuleiro().getLinha()][getTabuleiro().getcoluna()]; // Boolean inicia como false
-        return matriz;
+    public boolean[][] movimentosPossiveis() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'movimentosPossiveis'");
     }
-    
     
 
 }

@@ -15,13 +15,13 @@ public abstract class Peca {
         return tabuleiro;
     }
         // abstract , apenas classe que herdarem a classe mae iram poder acessar 
-    public abstract boolean[][] movimentoPossivel();
+    public abstract boolean[][] movimentosPossiveis();
 
     public boolean movimentoPossivel(Posicao posicao){
-        return movimentoPossivel()[posicao.getLinha()][posicao.getColuna()];
+        return movimentosPossiveis()[posicao.getLinha()][posicao.getColuna()];
     }
-    public boolean existeMovimentoPossivel(){
-        boolean[][] matriz = movimentoPossivel();
+    public boolean existeMovimentoPossivel(Posicao posica){
+        boolean[][] matriz = movimentosPossiveis();
         for(int i=0;i<matriz.length;i++){
             for(int j =0; j<matriz.length;j++){
                 if(matriz[i][j]){

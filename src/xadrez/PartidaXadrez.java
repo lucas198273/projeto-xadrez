@@ -32,17 +32,25 @@ public class PartidaXadrez {
         Posicao partida = posicaoPartida.paraPosicao();
         Posicao destino = posicaoDestino.paraPosicao();
         ValidarPosicaoOrigem(partida);
+        ValidarPosicaoDestino(partida , destino);
         Peca pecaCapturada = relizarMovimento(partida,destino);
         return(PecaXadrez) pecaCapturada; //downCasting
     }
+
     private void ValidarPosicaoOrigem(Posicao posicao){
         if(!tabuleiro.haUmaPeca(posicao)){
             throw new ExcecaoTabuleiro("NAO HA UMA PEÇA NESTA POSIÇÃO");
         }
-        if(!tabuleiro.peca(posicao).existeMovimentoPossivel()){
+        if(!tabuleiro.peca(posicao).existeMovimentoPossivel(posicao)){
             throw new ExcecaoXadrez("A PEÇA SELECIONADA NAO POSSUI MOVIMENTOS POSSIVEIS");
         }
     }
+    private void ValidarPosicaoDestino(Posicao partida, Posicao destino){
+        if(!tabuleiro.peca(partida).existeMovimentoPossivel(destino)){
+            throw new ExcecaoXadrez("== MOVIMENTO NAO É POSSIVEL ==");
+        }
+    }
+
     private Peca relizarMovimento(Posicao partida, Posicao destino){
         Peca p = tabuleiro.removePeca(partida);
         Peca pecaCapturada = tabuleiro.removePeca(destino);
@@ -70,7 +78,7 @@ public class PartidaXadrez {
         novoLugarPeca('b', 4, new Peao(tabuleiro, Color.BLACK));
         novoLugarPeca('b', 3, new Peao(tabuleiro, Color.BLACK));
         novoLugarPeca('b', 2, new Peao(tabuleiro, Color.BLACK));
-        novoLugarPeca('b', 1, new Peao(tabuleiro, Color.BLACK));
+        //novoLugarPeca('b', 1, new Peao(tabuleiro, Color.BLACK));
 
         //Peças Brancas
                 
