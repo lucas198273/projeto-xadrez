@@ -59,12 +59,26 @@ public class UI {
         
     }
 
+        public static void exibirtabuleiro(PecaXadrez[][] peca, boolean[][] movimentosPossiveis){
+        for(int i=0;i< peca.length;i++){ // Imprimi linha
+            System.out.print((8-i) +"  ");
+            for(int j=0;j<peca.length;j++){ // imprime coluna
+
+                exibirPeca( peca[i][j], movimentosPossiveis[i][j]);; // Verifica se a Peça esta vazia , se nao imprime a peca
+            }
+            System.out.println();
+        }
+        System.out.println("\n   a b c d e f g h");
+        
+    }
+
+
     	private static void exibirPeca(PecaXadrez piece, boolean background) {
 		if (background) {
-			System.out.print(ANSI_BLUE_BACKGROUND);
+			System.out.print(ANSI_BLUE_BACKGROUND );
 		}
-    	if (piece == null) {
-            System.out.print("-" + ANSI_RESET);
+    	if (piece == null) {    //Posição Vazia
+            System.out.print("-"+ ANSI_RESET);
         }
         else {
             if (piece.getColor() == Color.WHITE) {

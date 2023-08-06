@@ -28,6 +28,11 @@ public class PartidaXadrez {
         }
         return peca;
     }
+    public boolean[][] movimentosPossiveis(PosicaoXadrez posicaoPartida){
+        Posicao posicao = posicaoPartida.paraPosicao();
+        ValidarPosicaoOrigem(posicao);
+        return tabuleiro.peca(posicao).movimentosPossiveis();
+    }
     public PecaXadrez executarMovimento(PosicaoXadrez posicaoPartida, PosicaoXadrez posicaoDestino){
         Posicao partida = posicaoPartida.paraPosicao();
         Posicao destino = posicaoDestino.paraPosicao();
@@ -63,41 +68,43 @@ public class PartidaXadrez {
     public void iniciarPartida(){
 
         // Peças Pretas
-        novoLugarPeca('a', 8, new Torre(tabuleiro, Color.BLACK));
-        novoLugarPeca('a', 1, new Torre(tabuleiro, Color.BLACK));
-        novoLugarPeca('a', 7, new Cavalo(tabuleiro, Color.BLACK));
-        novoLugarPeca('a', 2, new Cavalo(tabuleiro, Color.BLACK));
-        novoLugarPeca('a', 3, new Bispo(tabuleiro, Color.BLACK));
-        novoLugarPeca('a', 6, new Bispo(tabuleiro, Color.BLACK));
-        novoLugarPeca('a', 5, new Rei(tabuleiro, Color.BLACK));
-        novoLugarPeca('a', 4, new Rainha(tabuleiro,Color.BLACK));
-        novoLugarPeca('b', 8, new Peao(tabuleiro, Color.BLACK));
-        novoLugarPeca('b', 7, new Peao(tabuleiro, Color.BLACK));
-        novoLugarPeca('b', 6, new Peao(tabuleiro, Color.BLACK));
-        novoLugarPeca('b', 5, new Peao(tabuleiro, Color.BLACK));
-        novoLugarPeca('b', 4, new Peao(tabuleiro, Color.BLACK));
-        novoLugarPeca('b', 3, new Peao(tabuleiro, Color.BLACK));
-        novoLugarPeca('b', 2, new Peao(tabuleiro, Color.BLACK));
+        // novoLugarPeca('a', 8, new Torre(tabuleiro, Color.BLACK));
+        // novoLugarPeca('a', 1, new Torre(tabuleiro, Color.BLACK));
+        // novoLugarPeca('a', 7, new Cavalo(tabuleiro, Color.BLACK));
+        // novoLugarPeca('a', 2, new Cavalo(tabuleiro, Color.BLACK));
+        // novoLugarPeca('a', 3, new Bispo(tabuleiro, Color.BLACK));
+        // novoLugarPeca('a', 6, new Bispo(tabuleiro, Color.BLACK));
+        // novoLugarPeca('a', 5, new Rei(tabuleiro, Color.BLACK));
+        // novoLugarPeca('a', 4, new Rainha(tabuleiro,Color.BLACK));
+        // novoLugarPeca('b', 8, new Peao(tabuleiro, Color.BLACK));
+        // novoLugarPeca('b', 7, new Peao(tabuleiro, Color.BLACK));
+        // novoLugarPeca('b', 6, new Peao(tabuleiro, Color.BLACK));
+        // novoLugarPeca('b', 5, new Peao(tabuleiro, Color.BLACK));
+        // novoLugarPeca('b', 4, new Peao(tabuleiro, Color.BLACK));
+        // novoLugarPeca('b', 3, new Peao(tabuleiro, Color.BLACK));
+        // novoLugarPeca('b', 2, new Peao(tabuleiro, Color.BLACK));
         //novoLugarPeca('b', 1, new Peao(tabuleiro, Color.BLACK));
 
         //Peças Brancas
                 
         novoLugarPeca('h', 1, new Torre(tabuleiro, Color.WHITE));
         novoLugarPeca('h', 8, new Torre(tabuleiro, Color.WHITE));
-        novoLugarPeca('h', 7, new Cavalo(tabuleiro, Color.WHITE));
-        novoLugarPeca('h', 2, new Cavalo(tabuleiro, Color.WHITE));
-        novoLugarPeca('h', 3, new Bispo(tabuleiro, Color.WHITE));
-        novoLugarPeca('h', 6, new Bispo(tabuleiro, Color.WHITE));
-        novoLugarPeca('h', 5, new Rei(tabuleiro, Color.WHITE));
-        novoLugarPeca('h', 4, new Rainha(tabuleiro,Color.WHITE));
-        novoLugarPeca('g', 8, new Peao(tabuleiro, Color.WHITE));
-        novoLugarPeca('g', 7, new Peao(tabuleiro, Color.WHITE));
-        novoLugarPeca('g', 6, new Peao(tabuleiro, Color.WHITE));
-        novoLugarPeca('g', 5, new Peao(tabuleiro, Color.WHITE));
-        novoLugarPeca('g', 4, new Peao(tabuleiro, Color.WHITE));
-        novoLugarPeca('g', 3, new Peao(tabuleiro, Color.WHITE));
-        novoLugarPeca('g', 2, new Peao(tabuleiro, Color.WHITE));
-        novoLugarPeca('g', 1, new Peao(tabuleiro, Color.WHITE));
+        novoLugarPeca('h', 3, new Torre(tabuleiro, Color.WHITE));
+        novoLugarPeca('h', 5, new Torre(tabuleiro, Color.WHITE));
+        // novoLugarPeca('h', 7, new Cavalo(tabuleiro, Color.WHITE));
+        // novoLugarPeca('h', 2, new Cavalo(tabuleiro, Color.WHITE));
+        // novoLugarPeca('h', 3, new Bispo(tabuleiro, Color.WHITE));
+        // novoLugarPeca('h', 6, new Bispo(tabuleiro, Color.WHITE));
+        // novoLugarPeca('h', 5, new Rei(tabuleiro, Color.WHITE));
+        // novoLugarPeca('h', 4, new Rainha(tabuleiro,Color.WHITE));
+        // novoLugarPeca('g', 8, new Peao(tabuleiro, Color.WHITE));
+        // novoLugarPeca('g', 7, new Peao(tabuleiro, Color.WHITE));
+        // novoLugarPeca('g', 6, new Peao(tabuleiro, Color.WHITE));
+        // novoLugarPeca('g', 5, new Peao(tabuleiro, Color.WHITE));
+        // novoLugarPeca('g', 4, new Peao(tabuleiro, Color.WHITE));
+        // novoLugarPeca('g', 3, new Peao(tabuleiro, Color.WHITE));
+        // novoLugarPeca('g', 2, new Peao(tabuleiro, Color.WHITE));
+        // novoLugarPeca('g', 1, new Peao(tabuleiro, Color.WHITE));
 
 
  

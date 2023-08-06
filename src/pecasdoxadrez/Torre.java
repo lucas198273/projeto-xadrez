@@ -31,7 +31,7 @@ public class Torre extends PecaXadrez{
         // while( tabuleiro existir a posição (p) e Nao houver uma peça la)
 
 
-        // Movimentação para cima Reduz -1 na linha 
+        // Movimentação para cima -1 na linha 
 
         p.setValores(posicao.getLinha() - 1, posicao.getColuna()); // atribuindo posição da variavel auxiliar a posição do nosso objeto em movimento 
         while(getTabuleiro().posicaoExiste(p) && !getTabuleiro().haUmaPeca(p)){
@@ -45,7 +45,7 @@ public class Torre extends PecaXadrez{
             matriz[p.getColuna()][p.getLinha()] = true;
         }
 
-        // Movimentação para baixo acressenta +1 na linha
+        // Movimentação para baixo +1 na linha
         p.setValores(posicao.getLinha() + 1, posicao.getColuna()); // atribuindo posição da variavel auxiliar a posição do nosso objeto em movimento 
         while(getTabuleiro().posicaoExiste(p) && !getTabuleiro().haUmaPeca(p)){
             // Marcando a posição como verdadeira
@@ -58,7 +58,7 @@ public class Torre extends PecaXadrez{
             matriz[p.getColuna()][p.getLinha()] = true;
         }
 
-        // Movimentação Lateral  Esquerda  Reduz -1 na coluna
+        // Movimentação Lateral  Esquerda   -1 na coluna
         p.setValores(posicao.getLinha() , posicao.getColuna()-1 ); // atribuindo posição da variavel auxiliar a posição do nosso objeto em movimento 
         while(getTabuleiro().posicaoExiste(p) && !getTabuleiro().haUmaPeca(p)){
             // Marcando a posição como verdadeira
@@ -72,7 +72,7 @@ public class Torre extends PecaXadrez{
         }
 
 
-        // Movimentação Lateral Direita Acressenta +1 na coluna 
+        // Movimentação Lateral Direita  +1 na coluna 
         p.setValores(posicao.getLinha() , posicao.getColuna()+1 ); // atribuindo posição da variavel auxiliar a posição do nosso objeto em movimento 
         while(getTabuleiro().posicaoExiste(p) && !getTabuleiro().haUmaPeca(p)){
             // Marcando a posição como verdadeira
